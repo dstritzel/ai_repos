@@ -9,14 +9,14 @@ This repo is designed to be shared in case someone wants to replicate my AI setu
 
 ## External Services
 
-- ollama[^1][^4] — local instance run on a box dedicated to using LLMs
-- SwarmUI[^1][^2] — running on the AI box; it uses ComfyUI internally so models are shared between ComfyUI and SwarmUI. In the future these will be separated.
-- Kokoro[^1][^3] —
+- ollama \*1&4 — local instance run on a box dedicated to using LLMs
+- SwarmUI \*1&2 — running on the AI box; it uses ComfyUI internally so models are shared between ComfyUI and SwarmUI. In the future these will be separated.
+- Kokoro \*1&3 — Runs on GPU, might not need it
 
-[1]: Currently on the AI box.
-[2]: Plan to split and move the non-GPU portion to a new box.
-[3]: Plan to test and/or move to a non-GPU system.
-[4]: Plan to add low-latency, lightweight LLMs as copies to low-end AI machines.
+1. Currently on the AI box.
+2. Plan to split and move the non-GPU portion to a new box.
+3. Plan to test and/or move to a non-GPU system.
+4. Plan to add low-latency, lightweight LLMs as copies to low-end AI machines.
 
 ## Servers
 
@@ -72,7 +72,7 @@ These are **some** general notes everyone should follow for responsible AI usage
 
 ## Thoughts
 
-Basically a rant and my thoughts on AI. Moved to its own file. Not everyone is interested. [THOUGHTS](THOUNTS.md)
+Basically a rant and my thoughts on AI. Moved to its own file. Not everyone is interested. [THOUGHTS](THOUGHTS.md)
 
 ## Disclaimer
 
