@@ -1,0 +1,30 @@
+name: qdrant-node1
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant-node1
+    restart: unless-stopped
+    networks:
+      - ai_network
+      - homelab
+    volumes:
+      - qdrant-data:/qdrant/storage:z
+    stop_grace_period: 1m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    labels:
+      - "maintainer=homelab"
+      - "service=qdrant"
+      - "version=1.0"
+
+networks:
+  ai_network:
+    name: ai_network
+  homelab:
+    external: true
+
+volumes:
+  qdrant-data: {}

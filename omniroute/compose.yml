@@ -1,0 +1,43 @@
+services:
+  omniroute:
+    image: diegosouzapw/omniroute:latest
+    container_name: omniroute
+    restart: unless-stopped
+    environment:
+      OMNIROUTE_MEMORY_MB: 8192
+    networks:
+      - ai_network
+      - homelab
+    volumes:
+      - omniroute-data:/app/data
+    stop_grace_period: 1m
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:20128/api/monitoring/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    labels:
+      - "maintainer=homelab"
+      - "service=openroute"
+      - "version=1.0"
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 2G
+
+networks:
+  ai_network:
+    name: ai_network
+  homelab:
+    external: true
+
+volumes:
+  omniroute-data: {}
