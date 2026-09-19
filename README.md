@@ -22,7 +22,7 @@ This repo is designed to be shared in case someone wants to replicate my AI setu
 
 - Main servers — node# — may be able to use ROCm, but are mainly used for non-GPU apps.
   - Organize into high-usage apps vs. standard.
-    - Example: Open Reader compute backup when processing uses a lot of CPU.
+    - Example: Open Reader compute service when processing uses a lot of CPU.
 - AI box — thinker (Spark DGX 128GB UM - GB10)
   - Box needs dusting; it gets very hot.
 - Temp box?
