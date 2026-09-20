@@ -1,0 +1,36 @@
+services:
+  caddy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: caddy-acme:2.11.4-alpine
+    container_name: caddy
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ${CADDY_CONFIG:-${PWD}/config}:/etc/caddy
+      - caddy_data:/data
+      - caddy_config:/config
+      - caddy_srv:/srv
+    env_file:
+      - .env
+    ports:
+      - "${NODE1_AI_IP}:443:443"
+      - "${NODE1_AI_IP}:80:80"
+    # Use Cloudflare DNS for ACME challenges
+    dns: 1.1.1.1
+    networks:
+      - homelab
+      - ai_network
+
+volumes:
+  caddy_data:
+  caddy_config:
+  caddy_srv:
+
+networks:
+  ai_network:
+    external: true
+  homelab:
+    external: true

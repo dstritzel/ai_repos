@@ -7,6 +7,7 @@ services:
       OMNIROUTE_MEMORY_MB: 8192
     networks:
       - ai_network
+      # Keeping old network until AI network is fully segregated
       - homelab
     volumes:
       - omniroute-data:/app/data
@@ -35,7 +36,7 @@ services:
 
 networks:
   ai_network:
-    name: ai_network
+    external: true
   homelab:
     external: true
 

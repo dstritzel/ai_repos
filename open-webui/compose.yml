@@ -15,10 +15,11 @@ services:
 
     restart: unless-stopped
     networks:
-      - ai_network
-      - homelab
-    profiles:
-      - disable
+      ai_network:
+        aliases:
+          - open-webui
+    # profiles:
+    #   - disable
 
 volumes:
   open-webui:
@@ -26,5 +27,4 @@ volumes:
 networks:
   ai_network:
     external: true
-  homelab:
-    external: true
+

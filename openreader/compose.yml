@@ -30,10 +30,10 @@ services:
             }
           ]
         }
-    ports:
-      - "3003:3003"
-      - "8333:8333"
-      - "8081:8081"
+    # ports:
+    #   - "3003:3003"
+    #   - "8333:8333"
+    #   - "8081:8081"
     volumes:
       - openreader-docstore:/app/docstore
       - ./ffmpeg:/app/ffmpeg
